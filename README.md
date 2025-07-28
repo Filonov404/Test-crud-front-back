@@ -3,7 +3,7 @@
 После запуска:
 
 ```bash
-curl -X POST http://localhost:5050/auth/register \
+curl -X POST http://localhost:5000/auth/register \
   -H "Content-Type: application/json" \
   -d '{"username": "admin", "password": "1234"}'
 
