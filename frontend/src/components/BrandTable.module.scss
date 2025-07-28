@@ -1,0 +1,61 @@
+.dashboard__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+
+  th,
+  td {
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    text-align: left;
+  }
+
+  thead {
+    background: #f8f9fa;
+    font-weight: bold;
+  }
+
+  img {
+    border-radius: 4px;
+    max-height: 40px;
+  }
+
+  &-actions {
+    display: flex;
+    gap: 6px;
+
+    &-button {
+      padding: 6px 10px;
+      font-size: 13px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.2s ease;
+
+      &--edit {
+        background: #17a2b8;
+        color: white;
+      }
+
+      &--delete {
+        background: #dc3545;
+        color: white;
+      }
+
+      &--cancel {
+        background: #ffc107;
+        color: #212529;
+      }
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+# dependencies
+node_modules
+
+# logs
+*.log
+
+# dotenv
+.env
+
+# MongoDB dump (если делаешь export/import)
+dump/
