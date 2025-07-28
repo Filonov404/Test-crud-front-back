@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   mongo:
     image: mongo:6
@@ -12,8 +10,6 @@ services:
   backend:
     build: ./backend
     restart: always
-    env_file:
-      - ./backend/.env.example
     environment:
       - MONGO_URI=mongodb://mongo:27017/brandmanager
       - JWT_SECRET=supersecretkey
@@ -26,8 +22,6 @@ services:
   frontend:
     build: ./frontend
     restart: always
-    env_file:
-      - ./frontend/.env.example
     environment:
       - VITE_API_URL=http://localhost:5000
     ports:
