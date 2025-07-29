@@ -9,16 +9,26 @@ import brandRoutes from './routes/brandRoutes.js';
 import authenticateJWT from './middlewares/authMiddleware.js';
 
 const app = express();
+const PORT = process.env.PORT || 5050;
 
 app.use(cors());
 app.use(express.json());
 
+// Swagger UI
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+// Public routes
 app.use('/auth', authRoutes);
-app.use('/brands', authenticateJWT, brandRoutes);
+app.use('/brands', brandRoutes); // ← временно без authMiddleware
 
-const PORT = process.env.PORT || 5000;
-
-connectDB().then(() => {
-  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-});
+// Подключение к базе и запуск сервера
+connectDB()
+    .then(() => {
+      app.listen(PORT, () => {
+        console.log(`✅ Server running on port ${PORT}`);
+      });
+    })
+    .catch((err) => {
+      console.error('❌ Failed to connect to MongoDB:', err);
+      process.exit(1);
+    });

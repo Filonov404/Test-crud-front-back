@@ -12,12 +12,12 @@ cp frontend/.env.example frontend/.env
 После запуска сервисов можно создать администратора командой:
 
 ```bash
-curl -X POST http://localhost:5000/auth/register \
+curl -X POST http://localhost:5001/auth/register \
   -H "Content-Type: application/json" \
-  -d '{"username": "admin", "password": "1234"}'
+  -d '{"username": "admin2", "password": "5678"}'
 ```
 
-Затем войдите в приложение по адресу http://localhost:5173 с этими данными:
+Затем войдите в приложение по адресу http://localhost:5173/login с этими данными:
 
 username: admin
 password: 1234
